@@ -1,0 +1,9 @@
+.example-card {
+   max-width: 400px;
+ }
+ 
+ .example-header-image {
+   background-image: url('https://image.freepik.com/free-vector/cartoon-traveling-car_23-2147511759.jpg');
+   background-size: cover;
+ }
+ 

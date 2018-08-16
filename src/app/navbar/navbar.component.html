@@ -1,0 +1,37 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" style="color:rgb(241, 177, 0)" routerLink="/">GRAB MY CAR</a>
+  <mat-icon>home</mat-icon>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul  class="navbar-nav mr-auto">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle routerLink="/" value="bold">Search</mat-button-toggle>&nbsp;
+            <mat-button-toggle  routerLink="/dashboard" value="italic">Dashboard</mat-button-toggle>&nbsp;
+            <mat-button-toggle  routerLink="/add" value="underline">Add-Ride</mat-button-toggle>&nbsp;
+            <mat-button-toggle routerLink="/status" value="bold">Inbox</mat-button-toggle>&nbsp;
+          </mat-button-toggle-group>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <p *ngIf="user" style="color: #ffff">Hello {{ user.displayName }} !</p>&nbsp;
+      <img *ngIf="user" [src]="user.photoURL" style="width: 45px; height: 45px;" class="rounded float-right" alt="...">&nbsp;
+
+      <div *ngIf="user; else showLogin">
+        <button (click)="logout()" color="warn" mat-raised-button>Logout</button>
+      </div>
+
+      <ng-template #showLogin>
+
+        <button (click)="login()" color="accent" mat-raised-button>Login</button>
+      </ng-template>
+
+    </form>
+  </div>
+</nav>

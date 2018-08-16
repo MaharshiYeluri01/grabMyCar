@@ -1,0 +1,40 @@
+<ui *ngIf="showSpinner"></ui>
+<div *ngIf="!showNothing" class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <br>
+      <br>
+      <br>
+      <div class="card">
+        <h6 class="card-header">{{myRide.username}}</h6>
+        <div class="card-body">
+          <h6 class="card-title">{{myRide.startsAt}} - {{myRide.endsAt}} BoardingPoint: {{myRide.boarding}} </h6>&nbsp;
+          <p style="color: brown" class="card-text"> {{myRide.date | timestamp}} @ {{myride.time}}</p>&nbsp;
+          <p style="color: brown" class="card-text">Fair Asked {{myRide.price}} </p>&nbsp;
+          <p style="color: rgb(69, 6, 153)">You can Reach {{myRide.username}} on this number {{myRide.phone}}</p>
+          <!-- <p> Boarding Point{{myRide.boardingPoint}}</p> -->
+          <button color="accent" mat-raised-button routerLink='/status'>OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showNothing" class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <br>
+      <ng-container>
+
+
+        <br>
+        <img src="../../assets/blabla/nfcar.png" style="height: 70%; width: 70%" class="rounded mx-auto d-block" alt="...">
+        <br>
+        <h6 class="text-center">Ride Details are removed by the User
+          <button routerLink="/status" color="accent" mat-button>ok</button>
+        </h6>
+      </ng-container>
+    </div>
+  </div>
+</div>

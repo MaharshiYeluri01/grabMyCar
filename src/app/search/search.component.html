@@ -1,0 +1,56 @@
+<div class="bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-4">
+
+        <br>
+        <div class="card w-60">
+          <div class="card-body">
+            <h5 class="card-title">Search For Rides</h5>
+            <div class="example-container">
+              <mat-form-field>
+                <input matInput placeholder="Ride Starts From" [formControl]="startsAt">
+                <mat-error *ngIf="startsAt.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <input matInput placeholder="Ride Ends At" [formControl]="endsAt">
+                <mat-error *ngIf="endsAt.invalid">{{getErrorMessageEndsAt()}}</mat-error>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="on">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="on"></mat-datepicker>
+                <mat-error *ngIf="on.invalid">{{getErrorMessageOn()}}</mat-error>
+              </mat-form-field>
+
+              <br>
+
+              <button (click)="submit()" [disabled]="startsAt.invalid || endsAt.invalid  ||  on.invalid " mat-raised-button color="primary">Search</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+</div>

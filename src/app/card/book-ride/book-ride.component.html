@@ -1,0 +1,21 @@
+<ui *ngIf="showLoader"></ui>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      
+    </div>
+    <div class="col-md-6">
+      <br>
+        <div class="card">
+            <h6 class="card-header">{{ride.username}} :- {{ride.date | timestamp}} @ {{ride.time}}</h6>
+            <div class="card-body">
+              <h6 class="card-title">{{ride.startsAt}} - {{ride.endsAt}} BoardingPoint : {{ride.boarding}} </h6>&nbsp;
+              <p class="card-text">Fair : {{ride.price}} ~ Seats Remaining : {{ride.seats}}</p>&nbsp;
+              <p>Requests : {{ride.requests || 0}}</p>
+              <button color="accent" (click)="requestSeat()" mat-raised-button>{{display}}</button>&nbsp;
+              <button color="primary" routerLink="/" mat-raised-button>Go Back</button>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

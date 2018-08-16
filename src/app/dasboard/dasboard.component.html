@@ -1,0 +1,94 @@
+
+<div class="bg">
+    <br>
+    <ui *ngIf="showSpinner"></ui>
+    <div *ngIf="!showNothing" class="container">
+      <div class="col-md-12">
+        <div class="row">
+          <br>
+          <br>
+          <ng-container  *ngFor="let item of myrides">
+            <br>
+            <br>
+            <div class="col-md-4">
+              <br>
+              <br>
+    
+              <ng-container>
+                <p style="color: rgb(255, 255, 255)"> {{item.startsAt}} - {{item.endsAt}} You are travelling With </p>
+                <hr>
+                <ng-container *ngFor="let travel of item.confirmed">
+    
+                  <button class="btn btn-light">{{travel}}</button>&nbsp;
+    
+                </ng-container>
+                <br>
+                <br>
+              </ng-container>
+            </div>
+            <div class="col-md-4">
+              <br>
+              <br>
+              <ng-container>
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h6 class="card-title">{{item.date | timestamp}} @ {{item.time}}</h6>
+                    <h6>{{item.startsAt}} -- {{item.endsAt}} Boarding: {{item.boarding}}</h6>
+                    <p>
+                      <span matBadge="{{item.seats}}" matBadgeOverlap="false">Seats Left in Pool</span>
+                    </p>
+                    <p>
+                      <span matBadge="{{item.requests || 0}}" matBadgeOverlap="false">New Requests</span>
+                    </p>
+    
+                    <p>price per seat
+                      <span style="color: rgb(51, 2, 165)">{{item.price}}</span>
+                    </p>
+    
+                    <button mat-raised-button (click)="deleteRide(item.id)">Delete This Trip</button>
+    
+                  </div>
+    
+                </div>
+                <br>
+                <hr>
+                <br>
+              </ng-container>
+            </div>
+            <div class="col-md-4">
+              <br>
+              <br>
+              <ng-container>
+                <p style="color: rgb(248, 248, 248)">Requests for {{item.startsAt}} - {{item.endsAt}} </p>
+                <hr>
+                <ng-container *ngFor="let req of item.requestedBy">
+                  <button class="btn btn-outline-success">{{req}}</button>
+                  <br>
+                  <br>
+                  <button color="primary" (click)="add(req,item.id,item.seats,item.requests,item.requestedBy,item.confirmed)" mat-raised-button>Add</button>&nbsp;
+                  <button color="warn" (click)="remove(req,item.id,item.seats,item.requests,item.requestedBy,item.confirmed)" mat-raised-button>decline</button>
+                </ng-container>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <br><br><br> <br><br><br> <br><br><br>
+    </div>
+    <div *ngIf="showNothing" class="container">
+      <div class="col-md-10">
+        <br>
+        <ng-container>
+    
+    
+          <br>
+          <img src="../../assets/blabla/source.gif" style="height: 70%; width: 70%" class="rounded mx-auto d-block" alt="...">
+          <br>
+          <h6 class="text-center">Your Did not offer any Rides
+            <button routerLink="/add" mat-button>Offer Ride!</button>
+          </h6>
+          <br><br><br> <br><br><br><br>
+        </ng-container>
+      </div>
+    </div>
+</div>

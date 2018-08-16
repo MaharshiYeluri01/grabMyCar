@@ -1,0 +1,37 @@
+
+<br>
+<div class="container">
+ 
+<br>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <br>
+        <ui *ngIf="showSpinner"></ui>
+        <ng-container *ngIf="showNothing">
+             <br>
+             <img src="../../assets/blabla/car.png" style="height: 100; width: 100" class="rounded mx-auto d-block" alt="...">
+             <br>
+           
+             <h6 class="text-center">Sorry No rides found <button routerLink="/add" color="accent" mat-button>Offer Ride!!</button></h6>
+     
+            </ng-container>
+
+        <div *ngIf="!showNothing">
+      <ng-container *ngFor="let item of Rides ;let i=index">
+        <div class="col">
+          <card [ride]="item"></card>
+        </div>
+
+        <div *ngIf="(i+1)%2===0" class="w-70">
+          <br>
+          <hr>
+        </div>
+      </ng-container>
+    </div>
+    </div>
+    
+  </div>
+</div>
+

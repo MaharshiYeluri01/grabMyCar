@@ -1,0 +1,87 @@
+
+<div class="bg">
+    <div class=" container">
+        <div class="row">
+          <div class="col-md-6">
+            <br>
+            <div class="card w-80">
+              <div class="card-body">
+                <h5 class="card-title">Add Ride</h5>
+                <div class="example-container">
+                  <mat-form-field>
+                    <input matInput placeholder="Ride Starts From" [formControl]="startsAt">
+                    <mat-error *ngIf="startsAt.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field>
+                    <input matInput placeholder="Ride Ends At" [formControl]="endsAt">
+                    <mat-error *ngIf="endsAt.invalid">{{getErrorMessageEndsAt()}}</mat-error>
+                  </mat-form-field>
+      
+                  <mat-form-field>
+                    <input matInput placeholder="Amount" [formControl]="price" type="number" class="example-right-align">
+                    <span matPrefix>₹&nbsp;</span>
+                    <span matSuffix>.00</span>
+                    <mat-error *ngIf="price.invalid">{{getErrorMessagePrice()}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Boarding Place" [formControl]="boarding">
+                    <mat-error *ngIf="boarding.invalid">{{getErrorMessageBoarding()}}</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field>
+                    <input matInput placeholder="Seats Available" [formControl]="seats" type="number" class="example-right-align">
+      
+                    <mat-error *ngIf="seats.invalid">{{getErrorMessageSeats()}}</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <br>
+            <div class="card w-80">
+              <div class="card-body">
+      
+                <div class="example-container">
+      
+      
+      
+                  <!-- <input   matInput placeholder="PhoneNumber"  [formControl]="phoneNum" type="number"class="example-right-align"> -->
+                  <mat-form-field class="example-full-width">
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input type="tel" [formControl]="phoneNum" matInput placeholder="phone">
+                    <mat-icon matSuffix>mode_edit</mat-icon>
+      
+                    <mat-error *ngIf="phoneNum.invalid">{{getErrorMessagePhoneNum()}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="on">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker startView="year" [startAt]="on"></mat-datepicker>
+                    <mat-error *ngIf="on.invalid">{{getErrorMessageOn()}}</mat-error>
+                  </mat-form-field>
+                  <br> Pick Your time of start
+                  <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+      
+                  <!-- <pre>Selected time: {{time | json}}</pre> -->
+      
+                  <mat-checkbox>Share My Post Instantly!</mat-checkbox>
+                  <p style="color: brown">We Don't share your PhoneNumber without your Permission</p>
+                  <button (click)="submit()" [disabled]="startsAt.invalid || endsAt.invalid  || price.invalid  || phoneNum.invalid || on.invalid || seats.invalid"
+                    mat-raised-button color="primary">Start Ride!</button>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+</div>
